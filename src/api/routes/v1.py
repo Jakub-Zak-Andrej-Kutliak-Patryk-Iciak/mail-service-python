@@ -27,9 +27,26 @@ def send_register_confirmation():
     return jsonify({"success": True})
 
 
-@v1.route('/booking/confirm', methods=['POST'])
-def send_booking_confirmation():
-    email = request.get_json().get('email')
+@v1.route('/send', methods=['POST'])
+def send_email():
+    receiver = request.get_json().get('receiver')
+    if receiver is None:
+        abort(400, "Required parameter 'receiver' parameter not found")
+    subject = request.get_json().get('subject')
+    if subject is None:
+        abort(400, "Required parameter 'subject' parameter not found")
+    message = request.get_json().get('message')
+    if message is None:
+        abort(400, "Required parameter 'message' parameter not found")
+    message = Message(
+        recipients=[receiver],
+        subject=subject,
+        body=message,
+    )
+    sender = request.get_json().get('sender')
+    if sender:
+        message.sender = sender
+    email_service.send_mail(message)
     return jsonify({"success": True})
 
 
