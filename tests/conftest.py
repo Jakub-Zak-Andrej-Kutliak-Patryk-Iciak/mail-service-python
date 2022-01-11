@@ -1,12 +1,17 @@
 import pytest
 
-from src.services import EmailService
+from src.services import EmailService, MQService
 from src import create_app, mail
 
 
 @pytest.fixture(scope='module')
 def test_email_service():
     return EmailService(mail)
+
+
+@pytest.fixture(scope='module')
+def test_mq_service():
+    return MQService()
 
 
 @pytest.fixture(scope='module')

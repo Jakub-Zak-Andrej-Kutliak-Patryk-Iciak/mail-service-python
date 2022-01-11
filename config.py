@@ -18,3 +18,5 @@ class Config:
     # MAIL_MAX_EMAILS = os.environ.get('MAIL_MAX_EMAILS')
     # MAIL_SUPPRESS_SEND = os.environ.get('MAIL_SUPPRESS_SEND')
     # MAIL_ASCII_ATTACHMENTS = os.environ.get('MAIL_ASCII_ATTACHMENTS')
+    MESSAGE_QUEUE_HOST = os.environ.get('MESSAGE_QUEUE_HOST')
+    MESSAGE_QUEUE_NAME = os.environ.get('MESSAGE_QUEUE_NAME')
