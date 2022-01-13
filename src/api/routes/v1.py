@@ -29,20 +29,9 @@ def send_register_confirmation():
 
 @v1.route('/send', methods=['POST'])
 def send_email():
-    receiver = request.get_json().get('receiver')
-    if receiver is None:
-        abort(400, "Required parameter 'receiver' parameter not found")
-    subject = request.get_json().get('subject')
-    if subject is None:
-        abort(400, "Required parameter 'subject' parameter not found")
-    message = request.get_json().get('message')
-    if message is None:
-        abort(400, "Required parameter 'message' parameter not found")
-    message = Message(
-        recipients=[receiver],
-        subject=subject,
-        body=message,
-    )
+    message, error = email_service.parse_request_to_message(request.get_json())
+    if error:
+        abort(400, error)
     sender = request.get_json().get('sender')
     if sender:
         message.sender = sender

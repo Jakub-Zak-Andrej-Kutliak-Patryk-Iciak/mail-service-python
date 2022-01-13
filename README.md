@@ -1,4 +1,4 @@
-### The Parking App Email Service
+### Mail Service - python
 
 **Run**
   - app
@@ -26,3 +26,8 @@
     ``pytest``
     - This command will run all the tests in the tests folder and print out their status
     - troubleshooting: if the pytest command is not available, check if your virtual environment is active
+  - docker
+    - To run the service as a docker container execute following command
+    ```commandline
+    docker run -t tag_name -p host_port:container_port --name name_of_the_container
+    ```

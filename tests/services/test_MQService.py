@@ -1,7 +1,7 @@
 def test_mq_connection_and_ability_to_publish_and_consume(test_mq_service):
     host = "localhost"
-    queue_name = "test_mail_queue"
-    consumer_tag = "test-email-service"
+    queue_name = "test-mail-queue"
+    consumer_tag = "test-python-mail-service-consumer"
     test_message = '{ "message": "Hey there, this is a test message!" }'
     print("Testing mq connection")
     """
