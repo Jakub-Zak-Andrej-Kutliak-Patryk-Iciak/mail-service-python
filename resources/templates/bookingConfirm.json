@@ -1,0 +1,5 @@
+{
+  "receiver": "driver@ucn.dk",
+  "subject": "Booking Confirmed",
+  "message": "Hi Driver! Your booking was successful and you can head out to your destination."
+}
