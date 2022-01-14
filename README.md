@@ -29,5 +29,5 @@
   - docker
     - To run the service as a docker container execute following command
     ```commandline
-    docker run -p host_port:container_port --name name_of_the_container name_of_the_image
+    docker run -p host_port:container_port --name name_of_the_container -d image_name
     ```
