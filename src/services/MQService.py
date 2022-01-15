@@ -6,7 +6,6 @@ from typing import Optional, Callable
 import pika
 
 from src.services import EmailService
-from src import Config
 
 
 class MQService(threading.Thread):
